@@ -2,7 +2,7 @@
 Muestra cartas con información e imágenes de pókemons utilzando la pokeAPI https://pokeapi.co/docs/v2 como recurso. Esta desarrollada utilizando ionic framework para React. 
 
 ## Instalación
-
+Primeramente necesitamos tener instalados en nuestro sistema **Nodejs** y **npm**.
 Para poder ejecutarla es necesario primeramente clonar el repositorio. Una vez que tengamos las carpetas de nuestro proyecto, debemos navegar hacia /client y ejecutar **npm install**. Luego, hacer lo mismo en /server.
 
 ## Ejecución
