@@ -19,6 +19,8 @@ import pokemonLogo from "/pokemon-23.svg";
 import "./Home.css";
 
 const Home: React.FC = () => {
+  const myAPIurl = import.meta.env.VITE_REACT_API_URL;
+
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [pokeAPIurl, setpokeAPIurl] = useState<string>(
     "https://pokeapi.co/api/v2/pokemon"
@@ -39,9 +41,7 @@ const Home: React.FC = () => {
 
   // Utiliza la respuesta de la API next para cargar la siguiente tanda de pokemons
   const getPokemons = async () => {
-    const response = await axios(
-      `http://localhost:3001/getPokemons?url=${pokeAPIurl}`
-    );
+    const response = await axios(`${myAPIurl}?url=${pokeAPIurl}`);
     setPokemons(response.data);
   };
 
@@ -50,9 +50,7 @@ const Home: React.FC = () => {
     const nextUrl = response.data.next; // Guarda la url de la siguiente pagina
     setpokeAPIurl(nextUrl); // Actualiza el estado a esa nueva url
 
-    const myAPIresponse = await axios(
-      `http://localhost:3001/getPokemons?url=${nextUrl}`
-    );
+    const myAPIresponse = await axios(`${myAPIurl}?url=${nextUrl}`);
 
     const newPokemons = myAPIresponse.data;
 
