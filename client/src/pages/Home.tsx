@@ -41,7 +41,7 @@ const Home: React.FC = () => {
 
   // Utiliza la respuesta de la API next para cargar la siguiente tanda de pokemons
   const getPokemons = async () => {
-    const response = await axios(`${myAPIurl}?url=${pokeAPIurl}`);
+    const response = await axios(`${myAPIurl}/getPokemons?url=${pokeAPIurl}`);
     setPokemons(response.data);
   };
 
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
     const nextUrl = response.data.next; // Guarda la url de la siguiente pagina
     setpokeAPIurl(nextUrl); // Actualiza el estado a esa nueva url
 
-    const myAPIresponse = await axios(`${myAPIurl}?url=${nextUrl}`);
+    const myAPIresponse = await axios(`${myAPIurl}/getPokemons?url=${nextUrl}`);
 
     const newPokemons = myAPIresponse.data;
 
